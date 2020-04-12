@@ -9,6 +9,7 @@
     </script>
     <script type="text/javascript">
       function load() {
+        $(this).attr('disabled', 'true');
         loadContent('https://vignette.wikia.nocookie.net/finalfantasy/images/6/6e/Cactuar_FFVIII_Color_Art.jpg/revision/latest/scale-to-width-down/340?cb=20130315023650').then(function(result) {
           console.log(window.URL.createObjectURL(result));
           var image = new Image()
@@ -25,9 +26,11 @@
   </head>
 
   <body>
-    <button>
-      Load!
-    </button>
+    <div>
+      <button>
+        Load!
+      </button>
+    </div>
   </body>
 
-  </html>
+</html>
