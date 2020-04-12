@@ -1,0 +1,33 @@
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>jQuery</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="script.js">
+    </script>
+    <script type="text/javascript">
+      function load() {
+        loadContent('https://vignette.wikia.nocookie.net/finalfantasy/images/6/6e/Cactuar_FFVIII_Color_Art.jpg/revision/latest/scale-to-width-down/340?cb=20130315023650').then(function(result) {
+          console.log(window.URL.createObjectURL(result));
+          var image = new Image()
+          image.src = window.URL.createObjectURL(result);
+          $('body').append(image);
+        }, function(err) {
+          console.log(err);
+        });
+      }
+      $(document).ready(function () {
+        $('button').one('click', load);
+      });
+    </script>
+  </head>
+
+  <body>
+    <button>
+      Load!
+    </button>
+  </body>
+
+  </html>

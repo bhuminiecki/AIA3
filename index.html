@@ -1,0 +1,43 @@
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>jQuery</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      table, th, td {
+        border: 1px solid black;
+      }
+
+      td {
+        padding: 5px
+      }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+      function load() {
+        $(this).attr('disabled', 'true');
+        $('body').append('<table></table>');
+        $.getJSON("guitars.json", function( data ) {
+          for (guitar of data.Guitars.Guitar) {
+            $('table').append('<tr><td>' + guitar.Brand + '</td><td>' + guitar.Model + '</td></tr>')
+          }
+        })
+      }
+      $(document).ready(function () {
+        $('button').one('click', load);
+      });
+    </script>
+  </head>
+
+  <body>
+    <button>
+      Load!
+    </button>
+  </body>
+
+  </html>
